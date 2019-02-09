@@ -2,6 +2,26 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = "8";
 
+client.on('message',async message => {
+    if(message.content.startsWith("8restart")) {
+        if(message.author.id !== "531218341260427266") return message.reply('You aren\'t the bot owner.');
+        message.channel.send('**Restarting.**').then(msg => {
+            setTimeout(() => {
+               msg.edit('**Restarting..**');
+            },1000);
+            setTimeout(() => {
+               msg.edit('**Restarting...**');
+            },2000);
+        });
+        console.log(`${message.author.tag} [ ${message.author.id} ] has restarted the bot.`);
+        console.log(`Restarting..`);
+        setTimeout(() => {
+            client.destroy();
+            client.login(process.env.TOKEN);
+        },3000);
+    }
+});
+
 var stopReacord = true;
 var reactionRoles = [];
 var definedReactionRole = null;
