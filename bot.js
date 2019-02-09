@@ -98,7 +98,7 @@ client.user.setActivity(argresult, {type:'LISTENING'});
     message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
 } else 
 
-if (message.content.startsWith(prefix + 's')) {
+if (message.content.startsWith(prefix + 'st')) {
   client.user.setGame(argresult, "https://www.twitch.tv/Justin-Ly0001");
     message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
 }
