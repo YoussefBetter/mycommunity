@@ -111,7 +111,7 @@ client.on('message', message => {//Mrx - Dev
         if (!message.guild) return message.reply('**:x: This Commands Just In Server**').then(v => {v.react('❌')})//Mrx - Dev
         var args =  message.content.split(' ').slice(1).join(' ')//Mrx - Dev
         if (!args) return message.reply('Type You Suggestion').then(c => {c.delete(5000)})//Mrx - Dev
-        let Room = message.guild.channels.find(`name`, "suggestions")//Mrx - Dev
+        let Room = message.guild.channels.find(`name`, "●-اقتراحات")//Mrx - Dev
         if (!Room) return message.channel.send("Can't find suggestions channel.").then(d => d.react('❌'))//Mrx - Dev
         let embed = new Discord.RichEmbed()//Mrx - Dev
         .setColor('RANDOM')//Mrx - Dev
