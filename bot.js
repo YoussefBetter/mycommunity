@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "8":
+const prefix = "8";
 
 var stopReacord = true;
 var reactionRoles = [];
