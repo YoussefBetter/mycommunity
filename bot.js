@@ -153,6 +153,30 @@ msg.channel.awaitMessages(fltr, {
     .then(co => {
         age = co.first().content
 co.first().delete();
+   .then(co => {
+    name = co.first().content
+    co.first().delete();
+    let time = '';
+    e.edit(`**${msg.author} اكتب كم ساعة راح تتفاعل | :clock:  **`).then(e => {
+    msg.channel.awaitMessages(fltr,{
+    time: 60000,
+    max: 1    
+    }) 
+    .then(co => {
+        time = co.first().content
+co.first().delete();  
+ .then(co => {
+    name = co.first().content
+    co.first().delete();
+    let why = '';
+    e.edit(`**${msg.author} اكتب ليش تبي تتقدم عاداره | :beginner:  **`).then(e => {
+    msg.channel.awaitMessages(fltr,{
+    time: 60000,
+    max: 1    
+    }) 
+    .then(co => {
+        why = co.first().content
+co.first().delete();       
 let from = '';
 e.edit(`**${msg.author} اكتب من اين انت الان | :triangular_flag_on_post: **`).then(e => {
  msg.channel.awaitMessages(fltr,{
@@ -172,6 +196,8 @@ let eb = new Discord.RichEmbed()
 .addField("**اسم المقدم**", name)
 .addField("**عمر المقدم***", age)
 .addField("**بلد المقدم**", from)
+.addField("**مدة تفاعل المقدم**", time)
+.addField("**سبب التقديم**", why)
 .addField("**تم التقديم بواسطة**", msg.author)
 .addField("**ايدي المقدم**", msg.author.id)
 .setTimestamp()
