@@ -128,89 +128,114 @@ client.on('message', message => {//Mrx - Dev
     }//Mrx - Dev
 });//Mrx - Dev
 
-client.on("message",async msg => {
-if(msg.content.startsWith(prefix + "تقديم")){
-let sc = msg.guild.channels.find("name","●-التقديم-عاداره")
-if(!sc) return msg.reply("**لا يوجد روم باْسم `التقديمات`**").then(p => {
-    p.delete(1500);
-})
-let fltr = m => m.author.id === msg.author.id
-let name = '';
-await msg.reply("**اكتب اسمك الان | :man_dancing: **").then(e => {
-msg.channel.awaitMessages(fltr, {
-    time: 60000,
-    max: 1
-})
-.then(co => {
-    name = co.first().content
-    co.first().delete();
-    let age = '';
-    e.edit(`**${msg.author} اكتب عمرك الان | :baby:  **`).then(e => {
-    msg.channel.awaitMessages(fltr,{
-    time: 60000,
-    max: 1    
-    }) 
-    .then(co => {
-        age = co.first().content
-co.first().delete();
-   .then(co => {
-    name = co.first().content
-    co.first().delete();
-    let time = '';
-    e.edit(`**${msg.author} اكتب كم ساعة راح تتفاعل | :clock:  **`).then(e => {
-    msg.channel.awaitMessages(fltr,{
-    time: 60000,
-    max: 1    
-    }) 
-    .then(co => {
-        time = co.first().content
-co.first().delete();  
- .then(co => {
-    name = co.first().content
-    co.first().delete();
-    let why = '';
-    e.edit(`**${msg.author} اكتب ليش تبي تتقدم عاداره | :beginner:  **`).then(e => {
-    msg.channel.awaitMessages(fltr,{
-    time: 60000,
-    max: 1    
-    }) 
-    .then(co => {
-        why = co.first().content
-co.first().delete();       
-let from = '';
-e.edit(`**${msg.author} اكتب من اين انت الان | :triangular_flag_on_post: **`).then(e => {
- msg.channel.awaitMessages(fltr,{
-time: 60000,
-max: 1
- })   
- .then(co => {
-from = co.first().content
-co.first().delete();
-e.edit(`**${msg.author} تم ارسال تقديمك للاداره | :white_check_mark: **`).then(d => {
-    d.delete(2000);
-})
-let eb = new Discord.RichEmbed()
-.addField("**تقديم**","**اداره**")
-.setColor("RANDOM")
-.setThumbnail(msg.author.avatarURL)
-.addField("**اسم المقدم**", name)
-.addField("**عمر المقدم***", age)
-.addField("**بلد المقدم**", from)
-.addField("**مدة تفاعل المقدم**", time)
-.addField("**سبب التقديم**", why)
-.addField("**تم التقديم بواسطة**", msg.author)
-.addField("**ايدي المقدم**", msg.author.id)
-.setTimestamp()
-.setFooter(msg.author.username,msg.author.avatarURL)
-sc.send(eb);
- })
-})
-    })   
-    })
-})
-})
+client.on("message", message => {
+            if(message.content.startsWith("8تقديم")) {
+        if(!message.channel.guild) return;
+                if(message.author.bot) return;
+        let channel = message.guild.channels.find("name", "●-التقديم-عاداره")
+            if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
+            if(channel) {
+            message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+              m.edit( message.member + ', **اسمك الحقيقى بالكامل ✍**' )
+              m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m1) => {
+                  m1 = m1.first();
+                  var name = m1.content;
+                  m1.delete();
+                  m.edit(message.member + ', **:timer:**').then( (m) =>{
+                      m.edit( message.member + ', **كم عمرك؟ 🎓**' )
+                      setTimeout(() => {
+                        m.delete()
+                      }, 10000);
+                      m.channel.awaitMessages( m2 => m2.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m2) => {
+                          m2 = m2.first();
+                          var age = m2.content;
+                          m2.delete()
+                          message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                            m.edit( message.member + ', **هل ستتفاعل فى الرومات الصوتيه و الكتابية ؟ 🎙**' )
+                            setTimeout(() => {
+                              m.delete()
+                            }, 10000);
+                            m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m3) => {
+                                m3 = m3.first();
+                                var ask = m3.content;
+                                m3.delete();
+                                message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                  m.edit( message.member + ', **هل ستحترم القوانين ؟ 📑**' )
+                                  setTimeout(() => {
+                                    m.delete()
+                                  }, 10000);
+                                  m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m4) => {
+                                      m4 = m4.first();
+                                      var ask2 = m4.content;
+                                      m4.delete();
+                                      message.channel.send( message.member + ', **:timer:**').then( (m) =>{
+                                        m.edit( message.member + ', **لماذا يجب علينا ان نقبلك ؟ اعطنا سبباً وجيهاً 🤔**' )
+                                        m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m5) => {
+                                            m5 = m5.first();
+                                            var ask3 = m5.content;
+                                            m5.delete();
+                      m.edit(message.member + ', **....جارى جمع البيانات**').then( (mtime)=>{
+                        setTimeout(() => {
+                          let embed = new Discord.RichEmbed()
+                        .setColor('RANDOM')
+                        .setTitle(`**تقديم ادارة** [__**${message.guild.name}**__]`)
+                        .addField('**`الاسم`**', `${name}` , true)
+                        .addField('**`العمر`**', `${age}` , true)
+                        .addField('**`هل سيتفاعل ؟`**',`${ask}`)
+                        .addField('**`هل سيحترم القوانين ؟`**',`${ask2}`)
+                        .addField('**`لماذا يجب علينا قبوله ؟`**',`${ask3}`)
+                        .setFooter(message.author.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+                        channel.send(embed)
+                        }, 2500);
+                        setTimeout(() => {
+                          mtime.delete()
+                        }, 3000);
+ 
+                  })
+                })
+                })
+              })
+            })
+          })
+        })
+        })
+              })
+          })
+        })
+    }
 }
-
-})
+        });
+    client.on('message',async message => {
+  let mention = message.mentions.members.first();
+  let role = message.content.split(" ").slice(2).join(" ");
+  let mySupport = message.guild.roles.find('name',role);
+  if(message.content.startsWith("8قبول")) {
+    let acRoom = message.guild.channels.find('name', '●-قبول-او-رفض');
+    if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+    if(acRoom) {
+    if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
+    if(!mention) return message.reply('منشن شخص');
+    if(!role) return message.reply('ادخل اسم رتبة');
+    if(!mySupport) return message.reply('هذه الرتبة غير موجودة');
+    if(mention.roles.has(mySupport)) return message.reply('هذا الشخص معه الرتبة مسبقا');
+ 
+    mention.addRole(mySupport).then(() => {
+      acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم بنجاح قبولك**`);
+    });
+  }
+}
+});
+client.on('message',async message => {
+  let mention = message.mentions.members.first();
+  if(message.content.startsWith("8رفض")) {
+  if(!message.channel.guild) return;
+  let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
+  if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+  if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
+  if(!mention) return message.reply("منشن شخص");
+ 
+  acRoom.send(`**${mention} تم رفضك للاسف**`)
+  }
+});
 
 client.login(process.env.TOKEN);
