@@ -213,7 +213,7 @@ client.on("message", message => {
     let acRoom = message.guild.channels.find('name', '●-قبول-او-رفض');
     if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
     if(acRoom) {
-    if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
+    if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return;
     if(!mention) return message.reply('منشن شخص');
     if(!role) return message.reply('ادخل اسم رتبة');
     if(!mySupport) return message.reply('هذه الرتبة غير موجودة');
@@ -231,7 +231,7 @@ client.on('message',async message => {
   if(!message.channel.guild) return;
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
   if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
-  if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
+  if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return;
   if(!mention) return message.reply("منشن شخص");
  
   acRoom.send(`**${mention} تم رفضك للاسف**`)
