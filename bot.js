@@ -128,4 +128,63 @@ client.on('message', message => {//Mrx - Dev
     }//Mrx - Dev
 });//Mrx - Dev
 
+client.on("message",async msg => {
+if(msg.content.startsWith(prefix + "تقديم")){
+let sc = msg.guild.channels.find("name","●-التقديم-عاداره")
+if(!sc) return msg.reply("**لا يوجد روم باْسم `التقديمات`**").then(p => {
+    p.delete(1500);
+})
+let fltr = m => m.author.id === msg.author.id
+let name = '';
+await msg.reply("**اكتب اسمك الان | :man_dancing: **").then(e => {
+msg.channel.awaitMessages(fltr, {
+    time: 60000,
+    max: 1
+})
+.then(co => {
+    name = co.first().content
+    co.first().delete();
+    let age = '';
+    e.edit(`**${msg.author} اكتب عمرك الان | :baby:  **`).then(e => {
+    msg.channel.awaitMessages(fltr,{
+    time: 60000,
+    max: 1    
+    }) 
+    .then(co => {
+        age = co.first().content
+co.first().delete();
+let from = '';
+e.edit(`**${msg.author} اكتب من اين انت الان | :triangular_flag_on_post: **`).then(e => {
+ msg.channel.awaitMessages(fltr,{
+time: 60000,
+max: 1
+ })   
+ .then(co => {
+from = co.first().content
+co.first().delete();
+e.edit(`**${msg.author} تم ارسال تقديمك للاداره | :white_check_mark: **`).then(d => {
+    d.delete(2000);
+})
+let eb = new Discord.RichEmbed()
+.addField("**تقديم**","**اداره**")
+.setColor("RANDOM")
+.setThumbnail(msg.author.avatarURL)
+.addField("**اسم المقدم**", name)
+.addField("**عمر المقدم***", age)
+.addField("**بلد المقدم**", from)
+.addField("**تم التقديم بواسطة**", msg.author)
+.addField("**ايدي المقدم**", msg.author.id)
+.setTimestamp()
+.setFooter(msg.author.username,msg.author.avatarURL)
+sc.send(eb);
+ })
+})
+    })   
+    })
+})
+})
+}
+
+})
+
 client.login(process.env.TOKEN);
