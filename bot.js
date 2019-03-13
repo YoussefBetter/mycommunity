@@ -347,4 +347,8 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 
 });
 
+client.on("guildMemberAdd", member => {
+  member.addRole(member.guild.roles.find("name","• Guest"));
+});
+
 client.login(process.env.TOKEN);
