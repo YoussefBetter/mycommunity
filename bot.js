@@ -25,7 +25,7 @@ client.on('ready', async => {
       client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمعن");
       client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمعنا");
     })
-}), 100000;
+}), 10000000;
 
 client.on('message', message => { // اقتراح
     if (message.content.startsWith(prefix + 'sug')) {
