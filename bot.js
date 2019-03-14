@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = "8";
 
 client.on('ready', () => { // لما يشتغل
-  client.channels.find(ch => ch.id === "555836400491298817" && ch.type === 'voice').join();
+  client.channels.find(ch => ch.id === "555849609390325760" && ch.type === 'voice').join();
   client.user.setGame("YB's Community", "https://www.twitch.tv/alpha");
   console.log(`Logged in as [ ${client.user.tag}! ]`);
   console.log('[           BOT IS ONLINE         ]')
@@ -363,7 +363,7 @@ client.on('message',async message => {
         SPEAK: false
       });
       setInterval(function() {
-        c.setName(`● Members Count:「${message.guild.members.size}」`)
+        c.setName(`● عدد الاعضاء:「${message.guild.members.size}」`)
       },1000);
     });
     }
