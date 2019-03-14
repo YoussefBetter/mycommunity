@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = "8";
 
 client.on('ready', () => { // لما يشتغل
-  
+  client.channels.find(ch => ch.id === "555836400491298817" && ch.type === 'voice').join();
   client.user.setGame("YB's Community", "https://www.twitch.tv/alpha");
   console.log(`Logged in as [ ${client.user.tag}! ]`);
   console.log('[           BOT IS ONLINE         ]')
@@ -11,7 +11,19 @@ client.on('ready', () => { // لما يشتغل
 
 client.on('ready', async => {
     setInterval(() => {
-        client.channels.find('id', '555836400491298817').setName("");
+      client.channels.find('id', '555836400491298817').setName("●");
+      client.channels.find('id', '555836400491298817').setName("● و");
+      client.channels.find('id', '555836400491298817').setName("● ول");
+      client.channels.find('id', '555836400491298817').setName("● ولك");
+      client.channels.find('id', '555836400491298817').setName("● ولكم");
+      client.channels.find('id', '555836400491298817').setName("● ولكم ف");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في م");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في مج");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في مجت");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمع");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمعن");
+      client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمعنا");
     })
 }), 5000;
 
