@@ -9,24 +9,6 @@ client.on('ready', () => { // لما يشتغل
   console.log('[           BOT IS ONLINE         ]')
 });
 
-client.on('ready', async => {
-    setInterval(() => {
-      client.channels.find('id', '555836400491298817').setName("●");
-      client.channels.find('id', '555836400491298817').setName("● و");
-      client.channels.find('id', '555836400491298817').setName("● ول");
-      client.channels.find('id', '555836400491298817').setName("● ولك");
-      client.channels.find('id', '555836400491298817').setName("● ولكم");
-      client.channels.find('id', '555836400491298817').setName("● ولكم ف");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في م");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في مج");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في مجت");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمع");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمعن");
-      client.channels.find('id', '555836400491298817').setName("● ولكم في مجتمعنا");
-    })
-}), 10000000;
-
 client.on('message', message => { // اقتراح
     if (message.content.startsWith(prefix + 'sug')) {
         if (message.author.bot) return
@@ -368,5 +350,23 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 client.on("guildMemberAdd", member => {
   member.addRole(member.guild.roles.find("name","• Guest"));
 });
+
+client.on('message',async message => {
+    if(message.content.startsWith(prefix + "setrex")) {
+    if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
+    if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
+    message.channel.send('✅| **تم عمل الروم بنجاح**');
+    message.guild.createChannel(`Members Count : [ ${message.guild.members.size} ]` , 'voice').then(c => {
+      console.log(`Count Members channel setup for guild: \n ${message.guild.name}`);
+      c.overwritePermissions(message.guild.id, {
+        CONNECT: false,
+        SPEAK: false
+      });
+      setInterval(function() {
+        c.setName(`Members Count : [ ${message.guild.members.size} ]`)
+      },1000);
+    });
+    }
+  });
 
 client.login(process.env.TOKEN);
