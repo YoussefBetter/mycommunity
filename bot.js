@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = "8";
 
 client.on('ready', () => { // لما يشتغل
-  client.channels.find(ch => ch.id === "555849609390325760" && ch.type === 'voice').join();
+  client.channels.find(ch => ch.id === "555850095464284171" && ch.type === 'voice').join();
   client.user.setGame("YB's Community", "https://www.twitch.tv/alpha");
   console.log(`Logged in as [ ${client.user.tag}! ]`);
   console.log('[           BOT IS ONLINE         ]')
