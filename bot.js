@@ -351,4 +351,15 @@ client.on("guildMemberAdd", member => {
   member.addRole(member.guild.roles.find("name","• Guest"));
 });
 
+client.on('message',async message => {
+  if(message.content.startsWith(prefix + "setrex")) {
+  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply('❌ **ليس لديك الصلاحيات الكافية**');
+  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply('❌ **ليس معي الصلاحيات الكافية**');
+  message.channel.send('✅| **تم عمل الروم بنجاح**');
+    setInterval(function() {
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${message.guild.members.size}`)
+    },1000);
+  }
+});
+
 client.login(process.env.TOKEN);
