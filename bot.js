@@ -33,7 +33,8 @@ client.on('message', message => { // اقتراح
 });
 
 client.on("message", message => { // تقديم اداره
-            if(message.content.startsWith("8تقديم")) {
+    if(!message.member.roles.some(r=>["Candidate"].includes(r.name)) ) return;        
+  if(message.content.startsWith("8تقديم")) {
         if(!message.channel.guild) return;
                 if(message.author.bot) return;
         let channel = message.guild.channels.find("name", "●-التقديم-عاداره")
