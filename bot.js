@@ -353,11 +353,11 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on('guildMemberAdd', member => {
-      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${message.guild.memberCount}`)
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${member.guild.memberCount}`)
 });
 
 client.on('guildMemberRemove', member => {
-      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${message.guild.memberCount}`)
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${member.guild.memberCount}`)
 });
 
 client.login(process.env.TOKEN);
