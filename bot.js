@@ -352,12 +352,14 @@ client.on("guildMemberAdd", member => {
   member.addRole(member.guild.roles.find("name","• Guest"));
 });
 
+const botCount = member.guild.members.filter(m=>m.user.bot).size
+const memberCount = [member.guild.memberCount] - [botCount]
 client.on('guildMemberAdd', member => {
-      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${member.guild.memberCount}`)
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${memberCount}`)
 });
 
 client.on('guildMemberRemove', member => {
-      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${member.guild.memberCount}`)
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${memberCount}`)
 });
 
 client.login(process.env.TOKEN);
