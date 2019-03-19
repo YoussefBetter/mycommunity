@@ -416,4 +416,119 @@ client.on('messageReactionRemove', (reaction, user) => {
   reaction.message.guild.members.get(user.id).removeRole(request.role);
 });
 
+client.on("message", (message) => {
+ if(!message.member.roles.some(r=>["• Mod","• Boss"].includes(r.name)) ) return;
+ if(message.content === '8mod') {
+   message.react('⁉')
+   message.channel.send('المميزات:');
+   message.channel.send('- تقدر تسوي ميوت 5 مرات في اليوم');
+   message.channel.send('المهام:');
+   message.channel.send('- عطي ميوت لكل شخص خالف القوانين');
+   message.channel.send('مدة الميوت حسب المخالفه:');
+   message.channel.send('- السبام: ساعه');
+   message.channel.send('- ازعاج او استفزاز في روم كتابي او صوتي: ساعتين');
+   message.channel.send('- سب بكل انواعه و اشكاله: 3 ساعات');
+   message.channel.send('- نشر سيرفر لشخص مو صديقه: 4 ساعات');
+   message.channel.send('- تكلم عن المواضيع السياسيه او الدينيه: ساعه');
+   message.channel.send('ملاحظات:');
+   message.channel.send('- اذا الشخص اعاد خطأه بنفس اليوم دبل المدة');
+   message.channel.send('كيف تعطي ميوت:');
+   message.channel.send('#mute (مدة الميوت) (منشن الشخص)');
+}
+});
+
+client.on("message", (message) => {
+ if(!message.member.roles.some(r=>["• Major","• Boss"].includes(r.name)) ) return;
+ if(message.content === '8major') { 
+  message.channel.send('المميزات:');
+  message.channel.send('- تقدر تعطي ميوت 10 مرات في اليوم');
+  message.channel.send('- تقدر تعطي بان 5 مرات في اليوم');
+  message.channel.send('المهام:');
+  message.channel.send('- عطي ميوت لكل شخص خالف القوانين');
+  message.channel.send('- تضيف ايموجي الي يعطيك اياه شخص عنده رتبة في اي بي');
+  message.channel.send('- تعطي بان للي خرب في السيرفر سيرفايفل في الديسكورد و السيرفر');
+  message.channel.send('- تصحح اخطاء الاداريين الي اصغر منك في الرتبه');
+  message.channel.send('مدة الميوت حسب المخالفه:');
+  message.channel.send('- السبام: ساعه');
+  message.channel.send('- ازعاج او استفزاز في روم كتابي او صوتي: ساعتين');
+  message.channel.send('- سب بكل انواعه و اشكاله: 3 ساعات');
+  message.channel.send('- نشر سيرفر لشخص مو صديقه: 4 ساعات');
+  message.channel.send('- تكلم عن المواضيع السياسيه او الدينيه: ساعه');
+  message.channel.send('ملاحظات:');
+  message.channel.send('- اذا الشخص اعاد خطأه بنفس اليوم دبل المدة');
+  message.channel.send('كيف تعطي ميوت:');
+  message.channel.send('#mute (مدة الميوت) (منشن الشخص)');
+  message.channel.send('كيف تعطي بان:');
+  message.channel.send('#ban (منشن الشخص)');
+}
+});
+
+client.on("message", (message) => {
+  if(!message.member.roles.some(r=>["• Admin","• Boss"].includes(r.name)) ) return;
+  if(message.content === '8admin') { 
+   message.channel.send('المميزات:');
+   message.channel.send('- تقدر تعطي ميوت 15 مرات في اليوم');
+   message.channel.send('- تقدر تعطي بان 10 مرات في اليوم');
+   message.channel.send('- تقدر تسوي فعاليات على راحتك');
+   message.channel.send('- تقدر تجذب اعضاء الى الروم الي انت فيه');
+   message.channel.send('- تقدر تغير النك نيم لاعضاء');
+   message.channel.send('المهام:');
+   message.channel.send('- عطي ميوت لكل شخص خالف القوانين');
+   message.channel.send('- تضيف ايموجي الي يعطيك اياه شخص عنده رتبة في اي بي');
+   message.channel.send('- تعطي بان للي خرب في السيرفر سيرفايفل في الديسكورد و السيرفر');
+   message.channel.send('- تصحح اخطاء الاداريين الي اصغر منك في الرتبه');
+   message.channel.send('مدة الميوت حسب المخالفه:');
+   message.channel.send('- السبام: ساعه');
+   message.channel.send('- ازعاج او استفزاز في روم كتابي او صوتي: ساعتين');
+   message.channel.send('- سب بكل انواعه و اشكاله: 3 ساعات');
+   message.channel.send('- نشر سيرفر لشخص مو صديقه: 4 ساعات');
+   message.channel.send('- تكلم عن المواضيع السياسيه او الدينيه: ساعه');
+   message.channel.send('ملاحظات:');
+   message.channel.send('- اذا الشخص اعاد خطأه بنفس اليوم دبل المدة');
+   message.channel.send('كيف تعطي ميوت:');
+   message.channel.send('#mute (مدة الميوت) (منشن الشخص)');
+   message.channel.send('كيف تعطي بان:');
+   message.channel.send('#ban (منشن الشخص)');
+   message.channel.send('كيف تجذب اعضاء:');
+   message.channel.send('#move (مشنن الشخص)');
+}
+});
+
+client.on("message", (message) => {
+  if(!message.member.roles.some(r=>["• President","• Boss"].includes(r.name)) ) return;
+  if(message.content === '8president') { 
+   message.channel.send('المميزات:');
+   message.channel.send('- تقدر تعطي ميوت 20 مرات في اليوم');
+   message.channel.send('- تقدر تعطي بان 15 مرات في اليوم');
+   message.channel.send('- تقدر تسوي فعاليات على راحتك');
+   message.channel.send('- تقدر تجذب اعضاء الى الروم الي انت فيه');
+   message.channel.send('- تقدر تغير النك نيم لاعضاء');
+   message.channel.send('- (تقدر تعطي ميوت او ديفين للاعضاء (صوتي');
+   message.channel.send('- تقدر تعطي رتب لاشخاص');
+   message.channel.send('- تقدر تمنشن الكل');
+   message.channel.send('المهام:');
+   message.channel.send('- عطي ميوت لكل شخص خالف القوانين');
+   message.channel.send('- تضيف ايموجي الي يعطيك اياه شخص عنده رتبة في اي بي');
+   message.channel.send('- تعطي بان للي خرب في السيرفر سيرفايفل في الديسكورد و السيرفر');
+   message.channel.send('- تصحح اخطاء الاداريين الي اصغر منك في الرتبه');
+   message.channel.send('- اعطي رتبة في اي بي للي دفعلي');
+   message.channel.send('مدة الميوت حسب المخالفه:');
+   message.channel.send('- السبام: ساعه');
+   message.channel.send('- ازعاج او استفزاز في روم كتابي او صوتي: ساعتين');
+   message.channel.send('- سب بكل انواعه و اشكاله: 3 ساعات');
+   message.channel.send('- نشر سيرفر لشخص مو صديقه: 4 ساعات');
+   message.channel.send('- تكلم عن المواضيع السياسيه او الدينيه: ساعه');
+   message.channel.send('ملاحظات:');
+   message.channel.send('- اذا الشخص اعاد خطأه بنفس اليوم دبل المدة');
+   message.channel.send('كيف تعطي ميوت:');
+   message.channel.send('#mute (مدة الميوت) (منشن الشخص)');
+   message.channel.send('كيف تعطي بان:');
+   message.channel.send('#ban (منشن الشخص)');
+   message.channel.send('كيف تجذب اعضاء:');
+   message.channel.send('#move (مشنن الشخص)');
+   message.channel.send('كيف تعطي رتبة:');
+   message.channel.send('#role (اسم الرتبة) (منشن الشخص)');  
+}
+});
+
 client.login(process.env.TOKEN);
