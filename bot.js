@@ -534,4 +534,35 @@ client.on("message", (message) => {
 }
 });
 
+client.on('message', message => {
+  if(message.content.startsWith(`<@${client.user.id}>`,`@${client.user.username}`)) {
+let Embed = new Discord.RichEmbed()
+.setDescription(`**
+❖════════════════❖
+» الاومر الادارية:
+- 8autoc: تضغط على الرياكشن تجيك رتبة
+- 8mutechannel: قفل الروم
+- 8unmutechannel: فتح الروم
+- 8bc: تسوي برودكاست
+- 8close: غلق التيكت
+- 8تقبل المترشح: قبول
+- 8ترفض المترشح: رفض
+- 8mod: كل شي عن المود
+- 8major: كل شي عن ماجور
+- 8admin: كل شي عن ادمن
+- 8president: كل شي عن بريسدنت
+❖════════════════❖
+» الاوامر العامة:
+- 8server: معلومات عن السيرفر
+- 8id: الاي دي حقك
+- 8new: فتح تيكت
+- 8sug: تسوي اقتراح
+- 8تتقدم على الادارة :تقديم
+❖════════════════❖
+**`)
+.setColor("RANDOM")
+message.channel.send({embed:Embed}); 
+  }
+});
+
 client.login(process.env.TOKEN);
