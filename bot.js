@@ -440,6 +440,7 @@ client.on("message", (message) => {
 client.on("message", (message) => {
  if(!message.member.roles.some(r=>["• Major","• Boss"].includes(r.name)) ) return;
  if(message.content === '8major') { 
+  message.react('⁉')
   message.channel.send('المميزات:');
   message.channel.send('- تقدر تعطي ميوت 10 مرات في اليوم');
   message.channel.send('- تقدر تعطي بان 5 مرات في اليوم');
@@ -465,7 +466,8 @@ client.on("message", (message) => {
 
 client.on("message", (message) => {
   if(!message.member.roles.some(r=>["• Admin","• Boss"].includes(r.name)) ) return;
-  if(message.content === '8admin') { 
+  if(message.content === '8admin') {
+   message.react('⁉')
    message.channel.send('المميزات:');
    message.channel.send('- تقدر تعطي ميوت 15 مرات في اليوم');
    message.channel.send('- تقدر تعطي بان 10 مرات في اليوم');
@@ -497,6 +499,7 @@ client.on("message", (message) => {
 client.on("message", (message) => {
   if(!message.member.roles.some(r=>["• President","• Boss"].includes(r.name)) ) return;
   if(message.content === '8president') { 
+   message.react('⁉')
    message.channel.send('المميزات:');
    message.channel.send('- تقدر تعطي ميوت 20 مرات في اليوم');
    message.channel.send('- تقدر تعطي بان 15 مرات في اليوم');
