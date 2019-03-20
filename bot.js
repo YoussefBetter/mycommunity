@@ -514,7 +514,7 @@ let Embed = new Discord.RichEmbed()
 - 8تتقدم على الادارة :تقديم
 ❖════════════════❖
 **`)
-.setColor("RANDOM")
+.setColor("#36393f")
 message.channel.send({embed:Embed}); 
   }
 });
