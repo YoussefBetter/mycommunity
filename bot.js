@@ -1,12 +1,22 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = "8";
+const gamestats = [`Mention me`,`YB's Community`]
+
+var index = 0
+var timer = 10 // الوقت بالثواني لتغير الستريمنق
+client.on("ready", ()=> {
+        setInterval(function(){
+        client.user.setGame(`${gamestats[index]}`,'https://www.twitch.tv/alpha')
+        index++
+            if( index >= gamestats.length) index = 0 ;
+        }, timer*1000);
+ 
+});
 
 client.on('ready', () => { // لما يشتغل
   client.channels.find(ch => ch.id === "555850095464284171" && ch.type === 'voice').join();
-  client.user.setGame("YB's Community", "https://www.twitch.tv/alpha");
   console.log(`Logged in as [ ${client.user.tag}! ]`);
-  console.log('[           BOT IS ONLINE         ]')
 });
 
 client.on('message', message => { // اقتراح
