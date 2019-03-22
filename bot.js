@@ -361,13 +361,11 @@ if (message.content.toLowerCase().startsWith(prefix + `close`)) {
 client.on("guildMemberAdd", member => {
   member.addRole(member.guild.roles.find("name","• Guest"));
 });
-var users = member.guild.members.filter(member => !member.user.bot).size
 client.on('guildMemberAdd', member => {
-      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${users}`)
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${member.guild.memberCount}`)
 });
-
 client.on('guildMemberRemove', member => {
-      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${users}`)
+      client.channels.find('id', '555850095464284171').setName(`● عدد الاعضاء: ${member.guild.memberCount}`)
 });
 
 client.on("message", (message) => {
