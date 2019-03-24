@@ -510,6 +510,9 @@ let Embed = new Discord.RichEmbed()
 - 8new: فتح تيكت
 - 8sug: تسوي اقتراح
 - 8تتقدم على الادارة :تقديم
+- 8head: راس سكنك
+- 8armor: راس سكنك و صدره
+- 8downl: تحميل السكن
 ❖════════════════❖
 **`)
 .setColor("RANDOM")
