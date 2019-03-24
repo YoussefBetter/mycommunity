@@ -517,4 +517,31 @@ message.channel.send({embed:Embed});
   }
 });
 
+client.on('message', message => {
+          if(message.content.startsWith(prefix + 'head')) {
+              let head = message.content.split(' ').slice(1).join(' ');
+              if (!head) return message.channel.send("**من فضلك ضع إسمك**");
+              var link = (`https://minotar.net/helm/${head}/100.png`);
+              message.channel.send(link);
+          }
+      });
+ 
+client.on('message', message => {
+          if(message.content.startsWith(prefix + 'armor')) {
+              let armor = message.content.split(' ').slice(1).join(' ');
+              if (!armor) return message.channel.send("**من فضلك ضع إسمك**");
+              var link = (`https://minotar.net/armor/bust/${armor}/100.png`);
+              message.channel.send(link);
+          }
+      });
+ 
+client.on('message', message => {
+          if(message.content.startsWith(prefix + 'downl')) {
+              let down = message.content.split(' ').slice(1).join(' ');
+              if (!down) return message.channel.send("**من فضلك ضع الإسم**");
+              var link = (`https://minotar.net/download/${down} إضغط على الرابط وسوف يتم تحميل السكن`);
+              message.channel.send(link);
+          }
+      });
+
 client.login(process.env.TOKEN);
