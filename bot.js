@@ -490,7 +490,6 @@ let Embed = new Discord.RichEmbed()
 .setDescription(`**
 ❖════════════════❖
 » الاومر الادارية:
-- 8autoc: تضغط على الرياكشن تجيك رتبة
 - 8mutechannel: قفل الروم
 - 8unmutechannel: فتح الروم
 - 8bc: تسوي برودكاست
@@ -511,6 +510,7 @@ let Embed = new Discord.RichEmbed()
 - 8head: راس سكنك
 - 8armor: راس سكنك و صدره
 - 8downl: تحميل السكن
+- 8roles: بتضهرلك الرتب الي تقدر تحصلها
 ❖════════════════❖
 **`)
 .setColor("RANDOM")
@@ -544,5 +544,18 @@ client.on('message', message => {
               message.channel.send(link);
           }
       });
+
+client.on("message", (message) => {
+ if(message.content === '8roles') { 
+  message.channel.send('Verified =» 8verify ');
+  message.channel.send('Minecrafter =» 8mc');
+   
+client.on("message", (message) => {
+if(message.content === '8verify') { 
+member.addRole(member.guild.roles.find("name","Verified"));
+        
+client.on("message", (message) => {
+if(message.content === '8mc') { 
+member.addRole(member.guild.roles.find("name","Minecrafter"));
 
 client.login(process.env.TOKEN);
